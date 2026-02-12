@@ -13,9 +13,9 @@ The ε-greedy algorithm balances **exploration** and **exploitation** in the k-a
 
 ### Initialization
 
-For $\( a = 1 \) to \( k \):
+For $\( a = 1 \) to \( k \):$
 
-\[
+$\[
 Q(a) \leftarrow 0
 \]
 
@@ -45,15 +45,15 @@ R \leftarrow \text{bandit}(A)
 
 Update action count:
 
-\[
+$\[
 N(A) \leftarrow N(A) + 1
-\]
+\]$
 
 Update action-value estimate:
 
-\[
+$\[
 Q(A) \leftarrow Q(A) + \frac{1}{N(A)} \left[ R - Q(A) \right]
-\]
+\]$
 
 ---
 
