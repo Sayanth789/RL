@@ -1,4 +1,4 @@
-## Policy Iteration (using Iterative Policy Evaluation) for estimating $ \pi \approx \pi_* $
+## Policy Iteration (using Iterative Policy Evaluation) for estimating $\pi \approx \pi_*$
 
 ---
 
@@ -6,10 +6,10 @@
 
 Initialize:
 
-- $ V(s) \in \mathbb{R} $ arbitrarily  
-- $ \pi(s) $ arbitrarily  
+- $V(s)\in\mathbb{R}$ arbitrarily  
+- $\pi(s)$ arbitrarily  
 
-for all $ s \in S $.
+for all $s\in S$.
 
 ---
 
@@ -18,63 +18,63 @@ for all $ s \in S $.
 Loop:
 
 $$
-\Delta \leftarrow 0
+\Delta\leftarrow 0
 $$
 
-For each $ s \in S $:
+For each $s\in S$:
 
 $$
-v \leftarrow V(s)
-$$
-
-$$
-V(s) \leftarrow 
-\sum_{s', r} p(s', r \mid s, \pi(s))
-\left[ r + \gamma V(s') \right]
+v\leftarrow V(s)
 $$
 
 $$
-\Delta \leftarrow \max(\Delta, | v - V(s) |)
+V(s)\leftarrow
+\sum_{s',r}p(s',r\mid s,\pi(s))
+\left[r+\gamma V(s')\right]
+$$
+
+$$
+\Delta\leftarrow \max(\Delta,|v-V(s)|)
 $$
 
 Repeat until:
 
 $$
-\Delta < \theta
+\Delta<\theta
 $$
 
-where $ \theta > 0 $ is a small positive number determining the accuracy of estimation.
+where $\theta>0$ is a small positive number determining the accuracy of estimation.
 
 ---
 
 ### 3. Policy Improvement
 
 $$
-\text{policy-stable} \leftarrow \text{true}
+\text{policy-stable}\leftarrow\text{true}
 $$
 
-For each $ s \in S $:
+For each $s\in S$:
 
 $$
-\text{old-action} \leftarrow \pi(s)
+\text{old-action}\leftarrow \pi(s)
 $$
 
 $$
-\pi(s) \leftarrow 
-\arg\max_a 
-\sum_{s', r} p(s', r \mid s, a)
-\left[ r + \gamma V(s') \right]
+\pi(s)\leftarrow
+\arg\max_a
+\sum_{s',r}p(s',r\mid s,a)
+\left[r+\gamma V(s')\right]
 $$
 
-If $ \text{old-action} \ne \pi(s) $:
+If $\text{old-action}\neq\pi(s)$:
 
 $$
-\text{policy-stable} \leftarrow \text{false}
+\text{policy-stable}\leftarrow\text{false}
 $$
 
 If policy-stable, then stop and return:
 
-- $ V \approx v_* $
-- $ \pi \approx \pi_* $
+- $V\approx v_*$
+- $\pi\approx\pi_*$
 
 Else go to Step 2.
