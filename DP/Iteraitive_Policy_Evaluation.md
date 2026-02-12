@@ -1,21 +1,21 @@
 # Iterative Policy Evaluation
 
 ## Input
-- A policy \( \pi \) to be evaluated.
+- A policy $ \pi $ to be evaluated.
 
 ## Algorithm Parameter
-- A small threshold \( \theta > 0 \) determining the accuracy of estimation.
+- A small threshold $ \theta > 0 $ determining the accuracy of estimation.
 
 ---
 
 ## Initialization
 
-Initialize \( V(s) \) arbitrarily for all \( s \in S^+ \),  
+Initialize $ V(s) $ arbitrarily for all $ s \in S^{+} $,  
 except that:
 
-\[
+$$
 V(\text{terminal}) = 0
-\]
+$$
 
 ---
 
@@ -23,42 +23,42 @@ V(\text{terminal}) = 0
 
 Loop:
 
-\[
+$$
 \delta \leftarrow 0
-\]
+$$
 
-For each state \( s \in S \):
+For each state $ s \in S $:
 
-\[
+$$
 v \leftarrow V(s)
-\]
+$$
 
-\[
+$$
 V(s) \leftarrow 
 \sum_{a} \pi(a \mid s)
 \sum_{s', r} p(s', r \mid s, a)
 \left[ r + \gamma V(s') \right]
-\]
+$$
 
-\[
+$$
 \delta \leftarrow \max(\delta, | v - V(s) |)
-\]
+$$
 
 Repeat until:
 
-\[
+$$
 \delta < \theta
-\]
+$$
 
 ---
 
 ## Description
 
-- \( V(s) \) — State-value function  
-- \( \pi(a \mid s) \) — Policy probability of taking action \( a \) in state \( s \)  
-- \( p(s', r \mid s, a) \) — Transition probability  
-- \( \gamma \) — Discount factor  
-- \( \theta \) — Convergence threshold  
-- \( \delta \) — Maximum change in value during an iteration  
+- $ V(s) $ — State-value function  
+- $ \pi(a \mid s) $ — Policy probability of taking action $ a $ in state $ s $  
+- $ p(s', r \mid s, a) $ — Transition probability  
+- $ \gamma $ — Discount factor  
+- $ \theta $ — Convergence threshold  
+- $ \delta $ — Maximum change in value during an iteration  
 
 This algorithm evaluates a given policy by iteratively updating the value function until convergence.
