@@ -24,7 +24,7 @@ $$
 Loop:
 
 $$
-\delta \leftarrow 0
+\Delta \leftarrow 0
 $$
 
 For each state $ s \in S $:
@@ -41,13 +41,13 @@ V(s) \leftarrow
 $$
 
 $$
-\delta \leftarrow \max(\delta, | v - V(s) |)
+\Delta \leftarrow \max(\Delta, | v - V(s) |)
 $$
 
 Repeat until:
 
 $$
-\delta < \theta
+\Delta < \theta
 $$
 
 ---
@@ -59,6 +59,6 @@ $$
 - $ p(s', r \mid s, a) $ — Transition probability  
 - $ \gamma $ — Discount factor  
 - $ \theta $ — Convergence threshold  
-- $ \delta $ — Maximum change in value during an iteration  
+- $ \Delta $ — Maximum change in value during an iteration  
 
 This algorithm evaluates a given policy by iteratively updating the value function until convergence.
